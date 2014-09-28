@@ -1,0 +1,14 @@
+Private Sub cmdDelete_Click()
+
+DoCmd.SetWarnings (False)
+
+If MsgBox("Quer apagar este registo?", vbYesNo, "Confirmação") = vbYes Then
+   If MsgBox("Tem a certeza?" & vbCrLf & _
+    "O registo será perdido...", vbYesNo, "2ª Confirmação") = vbYes Then
+         DoCmd.RunCommand acCmdDeleteRecord
+   End If
+End If
+
+DoCmd.SetWarnings (True)
+
+End Sub
